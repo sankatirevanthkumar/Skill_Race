@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class SumOddEvenDigits {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt user for input
+        System.out.println("Enter a long number:");
+        long number = scanner.nextLong();
+
+        // Variables to store sums
+        long sumOdd = 0;
+        long sumEven = 0;
+
+        // Handle negative numbers by converting them to positive
+        number = Math.abs(number);
+
+        // Process each digit
+        while (number > 0) {
+            long digit = number % 10;  // Extract last digit
+            if (digit % 2 == 0) {
+                sumEven += digit;  // Even digit
+            } else {
+                sumOdd += digit;   // Odd digit
+            }
+            number /= 10;  // Remove last digit
+        }
+
+        // Output results
+        System.out.println(sumOdd + " " + sumEven);
+
+        // Close the scanner
+        scanner.close();
+    }
+}
